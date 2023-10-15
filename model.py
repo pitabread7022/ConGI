@@ -63,7 +63,7 @@ class SpaCLR(nn.Module):
         )
 
     def forward_image(self, xi, spatial):
-        xi = pad_image(xi)
+        # xi = pad_image(xi)
         xi = self.image_encoder(xi)
 
         #x = self.x_embedding(spatial[:, 0])
