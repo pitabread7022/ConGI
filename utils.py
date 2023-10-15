@@ -11,6 +11,16 @@ from scipy.sparse import issparse
 from metrics import eval_mclust_ari
 from sklearn.metrics import adjusted_rand_score
 
+def pad_image(image):
+    img = np.reshape(image[0], (8,8))
+    height, width = img.shape
+    padded_height = height + 2
+    padded_width = width + 2 
+    padded_image = np.zeros((padded_height, padded_width))
+    padded_image[1:-1, 1:-1] = img
+    image[0] = np.reshape(padded_image, (1, 100))
+    return image
+
 def load_ST_file(file_fold, count_file='filtered_feature_bc_matrix.h5', load_images=True, file_adj=None):
     adata_h5 = sc.read_visium(file_fold, load_images=load_images, count_file=count_file)
     adata_h5.var_names_make_unique()

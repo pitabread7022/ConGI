@@ -24,7 +24,8 @@ class Dataset(data.Dataset):
             df_meta = pd.read_csv(os.path.join(path, name, 'metadata.tsv'), sep='\t')
             self.label = pd.Categorical(df_meta['layer_guess']).codes
             # image
-            full_image = cv2.imread(os.path.join(path, name, f'{name}_full_image.tif'))
+            # D:\Genomics\A2\dataset-1\SpatialLIBID\151507\spatial\tissue_hires_image.png
+            full_image = cv2.imread(os.path.join(path, name, 'tissue_hires_image.png'))
             full_image = cv2.cvtColor(full_image, cv2.COLOR_BGR2RGB)
             patches = []
             for x, y in adata.obsm['spatial']:

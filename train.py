@@ -120,9 +120,9 @@ if __name__ == '__main__':
     parser.add_argument('--pct_swap', type=float, default=0.1)
 
     # train
-    parser.add_argument('--batch_size', type=int, default=64)
-    parser.add_argument('--epochs', type=int, default=250)
-    parser.add_argument('--device', type=str, default="cuda")
+    parser.add_argument('--batch_size', type=int, default=5)
+    parser.add_argument('--epochs', type=int, default=1)
+    parser.add_argument('--device', type=str, default="cpu")
     parser.add_argument('--log_name', type=str, default="log_name")
     parser.add_argument('--name', type=str, default="None")
 

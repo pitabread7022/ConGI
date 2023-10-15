@@ -16,7 +16,7 @@ from metrics import  eval_mclust_ari
 from loss import NT_Xent
 from loss import DCL
 from loss import DCLW
-
+from utils import pad_image
 
 def LinearBlock(input_dim, output_dim, p_drop):
     return nn.Sequential(
@@ -63,6 +63,7 @@ class SpaCLR(nn.Module):
         )
 
     def forward_image(self, xi, spatial):
+        xi = pad_image(xi)
         xi = self.image_encoder(xi)
 
         #x = self.x_embedding(spatial[:, 0])
