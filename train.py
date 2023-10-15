@@ -1,3 +1,4 @@
+# !/path/to/project/venv/bin/python
 from ast import parse
 import os
 import random
@@ -95,7 +96,7 @@ if __name__ == '__main__':
 
     # preprocess
     parser.add_argument('--dataset', type=str, default="SpatialLIBD")
-    parser.add_argument('--path', type=str, default="../spatialLIBD")
+    parser.add_argument('--path', type=str, default="D:\Genomics\A2\dataset-1\SpatialLIBID")
     parser.add_argument("--gene_preprocess", choices=("pca", "hvg"), default="pca")
     parser.add_argument("--n_gene", choices=(300, 1000), default=300)
     parser.add_argument('--img_size', type=int, default=112)

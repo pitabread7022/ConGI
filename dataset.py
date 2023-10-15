@@ -29,7 +29,10 @@ class Dataset(data.Dataset):
             full_image = cv2.cvtColor(full_image, cv2.COLOR_BGR2RGB)
             patches = []
             for x, y in adata.obsm['spatial']:
-                patches.append(full_image[y-img_size:y+img_size, x-img_size:x+img_size])
+                x = int(x/5.5)
+                y = int(y/5.9)
+                patches.append(np.array(full_image[y-img_size:y+img_size, x-img_size:x+img_size]))
+            patches = [patch if patch.shape == (36, 36, 3) else np.zeros((36, 36, 3), dtype=np.uint8) for patch in patches]
             patches = np.array(patches)
             self.image = patches
 
